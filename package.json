@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"express-ws",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "express-ws",
+    "description": "api documentation for [express-ws (v3.0.0)](https://github.com/HenningM/express-ws) [![npm package](https://img.shields.io/npm/v/npmdoc-express-ws.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-express-ws) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-express-ws.svg)](https://travis-ci.org/npmdoc/node-npmdoc-express-ws)",
     "devDependencies": {
-        "express-ws": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "express-ws": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-express-ws",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-express-ws",
+    "keywords": [
+        "documentation",
+        "express-ws"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_express_ws.js",
+    "name": "npmdoc-express-ws",
+    "nameAlias": "npmdoc_express_ws",
+    "nameOriginal": "npmdoc-express-ws",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-express-ws"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
